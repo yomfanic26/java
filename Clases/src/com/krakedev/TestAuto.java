@@ -8,12 +8,12 @@ public class TestAuto {
 				Auto auto1 = new Auto();
 				Auto auto2 = new Auto();
 
-				// modicar los atrbutos de auto1
+				// modicar los atributos de auto1
 				auto1.marca = "MACLAREN:";
 				auto1.anio = 2020;
 				auto1.precio = 450.458;
 
-				// modicar los atrbutos de auto2
+				// modicar los atributos de auto2
 				auto2.marca = "CHEVROLET:";
 				auto2.anio = 2022;
 				auto2.precio = 50.458;
