@@ -4,21 +4,23 @@ public class TestCalculadora {
 
 	public static void main(String[] args) {
 		Calculadora calcular = new Calculadora();
-		double resultadoSuma,resultadoResta;
-		double resultadoMultiplicacion,resultadoDivision,resultadoPromedio;
-		resultadoSuma= calcular.sumar(10, 20);
-		resultadoResta= calcular.restar(10, 20);
-		resultadoMultiplicacion= calcular.multiplicar(10, 5);
-		resultadoDivision= calcular.dividir(10, 2);
-		resultadoPromedio= calcular.promediar(10, 8,9);
+		calcular.setValor1(8);
+        calcular.setValor2(6);
+        calcular.setValor3(10);
+		double resultadoSuma,resultadoResta,resultadoMultiplicacion,resultadoDivision,resultadoPromedio;
 
-		System.out.println("SUMA : "+resultadoSuma);
-		System.out.println("RESTA : "+resultadoResta);
-		System.out.println("MULTIPLICACION : "+resultadoMultiplicacion);
-		System.out.println("DIVISION : "+resultadoDivision);
-		System.out.println("PROMEDIO : "+resultadoPromedio);
+         resultadoSuma = calcular.sumar(calcular.getValor1(), calcular.getValor2());
+         resultadoResta = calcular.restar(calcular.getValor1(), calcular.getValor2());
+         resultadoMultiplicacion = calcular.multiplicar(calcular.getValor1(), calcular.getValor2());
+         resultadoDivision = calcular.dividir(calcular.getValor1(), calcular.getValor2());
+         resultadoPromedio = calcular.promediar(calcular.getValor1(), calcular.getValor2(),calcular.getValor3());
 
+      
+        System.out.println("SUMA : " + resultadoSuma);
+        System.out.println("RESTA : " + resultadoResta);
+        System.out.println("MULTIPLICACION : " + resultadoMultiplicacion);
+        System.out.println("DIVISION : " + resultadoDivision);
+        System.out.println("PROMEDIO : " + resultadoPromedio);
 
-	}
-
+    }
 }

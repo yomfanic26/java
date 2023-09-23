@@ -6,7 +6,10 @@ public class TesMensajeria {
 		// TODO Auto-generated method stub
 		Mensajeria mensaje = new Mensajeria();
 		mensaje.saludar();
-		mensaje.saludarAmigo("MARCOS", "Angulo");
+		mensaje.setNombre("MARCOS");
+		mensaje.setApellido("Angulo");
+
+		mensaje.saludarAmigo(mensaje.getNombre(),mensaje.getApellido());
 
 	}
 
