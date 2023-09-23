@@ -5,15 +5,20 @@ public class TestAuto {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-				Auto auto1 = new Auto();
-				Auto auto2 = new Auto();
+				/*Auto auto1 = new Auto();
+				Auto auto2 = new Auto();*/
+				Auto auto3 = new Auto("CAMARO",2023,100.045);
+				
+				System.out.println("Marca :" + auto3.getMarca());
+				System.out.println("Año :" + auto3.getAnio());
+				System.out.println("Precio :" + auto3.getPrecio());
 
-				// modicar los atributos de auto1
+				/*// modicar los atributos de auto1
 				auto1.setMarca("MACLAREN");
 				auto1.setAnio(2020);
 				auto1.setPrecio(450.458);
-
-				// modicar los atributos de auto2
+S
+				// modicar los atributos de auto2S
 				auto2.setMarca("CHEVROLET");
 				auto2.setAnio(2022); 
 				auto2.setPrecio(50.458);
@@ -25,7 +30,7 @@ public class TestAuto {
 				System.out.println("----------------------");
 				System.out.println("Marca :" + auto2.getMarca());
 				System.out.println("Año :" + auto2.getAnio());
-				System.out.println("Precio :" + auto2.getPrecio());
+				System.out.println("Precio :" + auto2.getPrecio());*/
 
 	}
 
