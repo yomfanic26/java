@@ -10,28 +10,29 @@ public class Juego {
 	private Naipe naipe;
 	private ArrayList<ArrayList<Carta>> cartasJugadores;
 
-	// CONTRUCTOR SIN PARAMETROS
+	// CONTRUCTOR SIN PARAMTROS
 	public Juego() {
 		naipe = new Naipe();
 		ArrayList<Carta> naipeBarajeado = naipe.barajar();
 	}
 
-	public Juego(String[] idsJugadores) {
+	public Juego(ArrayList<String> idsJugadores) {
 		cartasJugadores = new ArrayList<>();
 		naipe = new Naipe();
 
-		for (int i = 0; i < idsJugadores.length; i++) {
+		for (int i = 0; i < idsJugadores.size(); i++) {
 			ArrayList<Carta> cartas = new ArrayList<>();
 			cartasJugadores.add(cartas);
 		}
 	}
 
 	/*
-	 * El uso de un arreglo de listas anidado (ArrayList<ArrayList<Carta>>) puede
-	 * ser beneficioso en situaciones en las que se necesita organizar y acceder a
-	 * elementos en una estructura de datos de múltiples niveles.
+	 * PARA CONOCIMIENTO El uso de un arreglo de listas anidado
+	 * (ArrayList<ArrayList<Carta>>) puede ser beneficioso en situaciones en las que
+	 * se necesita organizar y acceder a elementos en una estructura de datos de
+	 * múltiples niveles.
 	 * 
-	 * En este caso, parece que cartasJugadores es un arreglo donde cada elemento es
+	 * En este caso,  cartasJugadores es un arreglo donde cada elemento es
 	 * una lista de cartas pertenecientes a un jugador específico. El arreglo en sí
 	 * permite acceder a cada jugador individualmente, y cada lista dentro del
 	 * arreglo contiene las cartas asociadas a ese jugador.
@@ -70,7 +71,7 @@ public class Juego {
 		// texto) en un número entero que puede ser utilizado como índice para acceder a
 		// la lista de cartas del jugador.
 		int id = Integer.parseInt(idJugador.substring(idJugador.length() - 1)) - 1; // el menos 1 al final es para tener
-																					// un indice que empieza en 0
+																					// un indice basado en 0
 
 		// Obtener las cartas del jugador
 		ArrayList<Carta> cartasJugador = cartasJugadores.get(id);
@@ -94,9 +95,11 @@ public class Juego {
 		for (int i = 1; i < cartasJugadores.size(); i++) {
 			int sumaJugador = devolverTotal("jugador " + (i + 1));
 
-			if (sumaJugador >= sumaGanador) {
+			if (sumaJugador > sumaGanador) {
 				idGanador = i;
 				sumaGanador = sumaJugador;
+			} else {
+
 			}
 		}
 
