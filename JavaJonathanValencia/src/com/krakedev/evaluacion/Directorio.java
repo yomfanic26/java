@@ -34,18 +34,20 @@ public class Directorio {
 		Contacto contactoEncontrado = null;
 		boolean existeContacto = false;
 
-		if (contactos == null) {
-			contactos = new ArrayList<>();
-		}
-		for (int i = 0; i < contactos.size(); i++) {
-			if (contactos.get(i).getCedula().equals(cedula)) {
-				contactoEncontrado = contactos.get(i);
-				existeContacto = true;
-				break;
-			}
+		if (contactos != null) {
+			for (int i = 0; i < contactos.size(); i++) {
+				if (contactos.get(i).getCedula().equals(cedula)) {
+					contactoEncontrado = contactos.get(i);
+					existeContacto = true;
+					break;
+				}
 
+			}
+		} else {
+			System.out.println("La lista conactos esta vacia");
 		}
-		if (existeContacto) {
+
+		if (existeContacto) { // si contacto es verdadero
 			return contactoEncontrado;
 
 		} else {

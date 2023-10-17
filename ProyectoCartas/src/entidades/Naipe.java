@@ -35,21 +35,16 @@ public class Naipe {
 			numeroPosibles.add(new Numero(nombre, valor));
 		}
 
-		// creo un strign llamdo palo que va obtener cada uno de los palos posibles
-		String palo1 = palos.CORAZON_ROJO;
-		String palo2 = palos.CORAZON_DIMANTE;
-		String palo3 = palos.DIAMANTE;
-		String palo4 = palos.TREBOL;
-
+		
 		// agregar en array de cartas los 13 numeros posibles combinados con cada palo
 		// debe salir 52 combinaciones
 		for (int i = 0; i < numeroPosibles.size(); i++) {
 
 			Numero numero = numeroPosibles.get(i);
-			cartas.add(new Carta(numero, palo1));
-			cartas.add(new Carta(numero, palo2));
-			cartas.add(new Carta(numero, palo3));
-			cartas.add(new Carta(numero, palo4));
+			cartas.add(new Carta(numero, palos.CORAZON_ROJO));
+			cartas.add(new Carta(numero, palos.CORAZON_DIMANTE));
+			cartas.add(new Carta(numero, palos.DIAMANTE));
+			cartas.add(new Carta(numero, palos.TREBOL));
 
 		}
 
@@ -58,31 +53,33 @@ public class Naipe {
 	// Metodo barajar
 
 	public ArrayList<Carta> barajar() {
-		int posicion = 0;
-		Carta elementoCarta;
-		ArrayList<Carta> auxiliar = new ArrayList();
-		for (int i = 0; i <= 100; i++) {
-			posicion = randon.obtenerPosicion();
-			elementoCarta = cartas.get(posicion);
-			if (elementoCarta.getEstado().equals("N")) {
-				elementoCarta.setEstado("C");
-				auxiliar.add(elementoCarta);
+	    int posicion = 0; // Variable que almacenará la posición de la carta seleccionada.
+	    Carta elementoCarta; // Variable que representa una carta.
+	    ArrayList<Carta> auxiliar = new ArrayList(); // ArrayList auxiliar para almacenar las cartas barajadas.
 
-			} else {
+	    for (int i = 0; i <= 100; i++) {
+	        posicion = randon.obtenerPosicion(); // Obtener una posición aleatoria.
+	        elementoCarta = cartas.get(posicion); // Obtener la carta en esa posición.
 
-			}
-		}
-//
-		for (int i = 0; i < cartas.size(); i++) {
-			elementoCarta = cartas.get(posicion);
+	        if (elementoCarta.getEstado().equals("N")) { // Si la carta está en estado 'N' (no usada).
+	            elementoCarta.setEstado("C"); // Cambiar el estado de la carta a 'C' (usada).
+	            auxiliar.add(elementoCarta); // Agregar la carta al ArrayList auxiliar.
+	        } else {
+	            // No se hace nada si la carta ya estaba en estado 'C' (usada).
+	        }
+	    }
 
-			if (elementoCarta.getEstado().equals("N")) {
-				auxiliar.add(elementoCarta);
-				elementoCarta.setEstado("C");
-			}
-		}
+	    // Recorrer todas las cartas y cambiar las qu no han sido añadidas al auxiliar.
+	    for (int i = 0; i < cartas.size(); i++) {
+	        elementoCarta = cartas.get(posicion); // Obtener la carta en esa posición.
 
-		return auxiliar;
+	        if (elementoCarta.getEstado().equals("N")) { // Si la carta está en estado 'N' (no usada).
+	            auxiliar.add(elementoCarta); // Agregar la carta al ArrayList auxiliar.
+	            elementoCarta.setEstado("C"); // Cambiar el estado de la carta a 'C' (usada).
+	        }
+	    }
+
+	    return auxiliar; // Devolver el ArrayList con las cartas barajadas.
 	}
 
 }
