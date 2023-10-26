@@ -2,13 +2,18 @@ package com.krakedev.persistencia.servicios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.krakedev.persistencia.entidades.Cuenta;
 import com.krakedev.persistencia.entidades.Empleado;
+import com.krakedev.persistencia.entidades.Persona;
 import com.krakedev.persistencia.util.ConexcionBDD;
 
 public class AdminEmpleado {
@@ -116,4 +121,49 @@ public class AdminEmpleado {
 		}
 
 	}
+
+	public static ArrayList<Empleado> buscarPorParametrps(String nombreBusqueda, Date fechaBusqueda)
+			throws Exception {
+		ArrayList<Empleado> empleados = new ArrayList();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = ConexcionBDD.conectar();
+			ps = con.prepareStatement("select * from empleados where nombre like ? and fecha>?");
+			ps.setString(1, "%" + nombreBusqueda + "%");
+			ps.setDate(2, new java.sql.Date(fechaBusqueda.getTime()));
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int codigo = rs.getInt("codigo_empleado");
+				String nombre = rs.getString("nombre");
+				Date fech = rs.getDate("fecha");
+				Time hora = rs.getTime("hora");
+
+				Empleado empleado = new Empleado();
+				empleado.setCodigo_empleado(codigo);
+				empleado.setNombre(nombre);
+				empleado.setFecha(fech);
+				empleado.setHora(hora);
+				empleados.add(empleado);
+
+			}
+
+		} catch (Exception e) {
+			LOGGER.error("Error al consultar por nombre y fecha", e);
+			throw new Exception("Error al consultar por nombre y fecha");
+		} finally {
+
+			try {
+				con.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error enla base de datos", e);
+				throw new Exception("Error en la base de datos");
+			}
+		}
+		return empleados;
+	}
+
 }

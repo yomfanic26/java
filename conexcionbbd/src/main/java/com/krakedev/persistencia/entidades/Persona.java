@@ -117,7 +117,7 @@ public class Persona {
 		return "Persona [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", estatura=" + estatura
 				+ ", fecha_nacimiento=" + fecha_nacimiento + ", hora_nacimiento=" + hora_nacimiento
 				+ ", cantidad_ahorrada=" + cantidad_ahorrada + ", numero_hijos=" + numero_hijos + ", estado_civil="
-				+ estado_civil + "]";
+				+ estado_civil + "]\n";
 	}
 
 }
