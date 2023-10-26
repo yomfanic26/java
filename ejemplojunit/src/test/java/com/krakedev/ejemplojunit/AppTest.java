@@ -25,5 +25,4 @@ public class AppTest {
          assertTrue(resultado==-6);
 
      }
-
 }

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Curso {
 	ArrayList<Estudiante> estudiantes;
-	
+
 	public Curso() {
-        this.estudiantes = new ArrayList<>();
-    }
+		this.estudiantes = new ArrayList<>();
+	}
 
 	public Estudiante buscarEstudiantePorCedula(String cedula) {
 		for (int i = 0; i < estudiantes.size(); i++) {
@@ -35,9 +35,10 @@ public class Curso {
 		if (cantidadEstudiantes > 0) {
 			for (int i = 0; i < cantidadEstudiantes; i++) {
 				Estudiante estudiante = estudiantes.get(i);
-				double sumatoriaCalificaciones = 0;
 				int cantidadNotas = estudiante.getNotas().size();
-
+				double sumatoriaCalificaciones = 0; // declarar la varible en este punto garantiza q se reinicie para cada iteración del
+													// bucle, y así obtenemos la sumatoria de calificaciones de cada
+													// estudiante individual.
 				if (cantidadNotas > 0) {
 					for (int j = 0; j < cantidadNotas; j++) {
 						Nota nota = estudiante.getNotas().get(j);
